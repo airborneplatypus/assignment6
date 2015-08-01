@@ -3,28 +3,20 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$dbhost = 'oniddb.cws.oregonstate.edu';
-$dbname = 'koistint-db';
-$dbuser = 'koistint-db';
-$dbpass = '48W7fqmF2hJOtdFA';
-
-$mysql_handle = mysql_connect($dbhost, $dbuser, $dbpass)
-    or die("Error connecting to database server");
-
-mysql_select_db($dbname, $mysql_handle)
-    or die("Error selecting database: $dbname");
-
-echo 'Successfully connected to database!';
-
-mysql_close($mysql_handle);
-
 echo "<html>\n";
 echo "<head>\n";
-echo "<title> Login </title>\n";
+echo "<title> Movie Database </title>\n";
 echo "</head>\n";
 echo "<body>\n";
 
+echo "<h1>Add Movie</h1>";
+echo "Name of Movie: <input type=\"text\" id=\"name\"><br>";
+echo "Category of Movie: <input type=\"text\" id=\"category\"><br>";
+echo "Length of Movie: <input type=\"number\" id=\"length\"><br>";
+echo "Is it rented? <input type=\"checkbox\" id=\"rented\" value=\"rented\">Yes<br>";
+echo "<button id=\"movieButton\" class=\"btn btn-primary\">Add Movie</button><br>";
 
+echo "<script src=\"code.js\"></script>";
 echo "</body>\n";
 echo "</html>\n";
 
