@@ -23,6 +23,7 @@ newButton.onclick = function(){
 	m.set_movie(newName.value, newCategory.value, newRented.value, newLength.value);
 	var request = new XMLHttpRequest();
 	request.open("POST", "addmovie.php", true);
+	console.log(JSON.stringify(m));
 	request.send(JSON.stringify(m));
 	request.onreadystatechange = function(){
 		if (request.readyState === 4){
