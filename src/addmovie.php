@@ -32,8 +32,9 @@ if(isset($new_movie)){
 	} else{
 		$rented = false;
 	}
-	$sql = "INSERT INTO cs290assign6 ( name, category, length, rented) VALUES( '$movieName', '$movieCategory', '$movieLength', '$rented')";
-	$result = mysqli_query($mysqli_handle, $sql);
+	$stmt = $mysqli_handle->prepare("INSERT INTO cs290assign6 ( name, category, length, rented) VALUES( ?, ?, ?, ?)");
+	$stmt->bind_param("sssb", $movieName, $movieCategory, $movieLength, $rented);
+	$result = $stmt->execute();
     if ($result) {
         echo "success";
     } else {
