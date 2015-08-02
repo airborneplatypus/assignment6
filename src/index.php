@@ -13,7 +13,7 @@ echo "<h1>Add Movie</h1>";
 echo "Name of Movie: <input type=\"text\" id=\"name\"><br>";
 echo "Category of Movie: <input type=\"text\" id=\"category\"><br>";
 echo "Length of Movie: <input type=\"number\" id=\"length\"><br>";
-echo "Is it rented? <input type=\"checkbox\" id=\"rented\" value=\"rented\">Yes<br>";
+echo "Is it rented? <input type=\"checkbox\" id=\"rented\">Yes<br>";
 echo "<button id=\"movieButton\" class=\"btn btn-primary\">Add Movie</button><br>";
 
 echo "<script src=\"code.js\"></script>";

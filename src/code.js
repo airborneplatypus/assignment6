@@ -20,7 +20,7 @@ function movie(){
 
 newButton.onclick = function(){
 	var m = new movie;
-	m.set_movie(newName.value, newCategory.value, newRented.value, newLength.value);
+	m.set_movie(newName.value, newCategory.value, newRented.checked, newLength.value);
 	var request = new XMLHttpRequest();
 	request.open("POST", "addmovie.php", true);
 	console.log(JSON.stringify(m));
@@ -28,10 +28,13 @@ newButton.onclick = function(){
 	request.onreadystatechange = function(){
 		if (request.readyState === 4){
 			if(request.status === 200){
-				console.log(request);
+				if(request.responseText != "success")
+				{
+					alert(request.responseText);
+				}
 			}
 			else{
-				alert("Error!");
+				alert("Error! " + request.status);
 			}
 		}
 	}

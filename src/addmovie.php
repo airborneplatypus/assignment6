@@ -14,7 +14,7 @@ $mysqli_handle = mysqli_connect($dbhost, $dbuser, $dbpass)
 mysqli_select_db($mysqli_handle, $dbname)
 	or die("Error selecting database: $dbname");
 
-echo 'Successfully connected to database!';
+//echo 'Successfully connected to database!';
 
 
 
@@ -27,12 +27,17 @@ if(isset($new_movie)){
 	$movieName = $new_movie->name;
 	$movieCategory = $new_movie->category;
 	$movieLength = $new_movie->movieLength;
-	$sql = "INSERT INTO cs290assign6 ( name, category, length) VALUES( '$movieName', '$movieCategory', '$movieLength')";
+	if($new_movie->rented == "on"){
+		$rented = true;
+	} else{
+		$rented = false;
+	}
+	$sql = "INSERT INTO cs290assign6 ( name, category, length, rented) VALUES( '$movieName', '$movieCategory', '$movieLength', '$rented')";
 	$result = mysqli_query($mysqli_handle, $sql);
     if ($result) {
         echo "success";
     } else {
-        echo ("Could not insert data : " . mysqli_error($mysqli_handle) . " " . mysqli_errno($mysqli_handle));
+        echo ("Could not insert data : " . mysqli_error($mysqli_handle));// . " " . mysqli_errno($mysqli_handle)
     }
 }
 
