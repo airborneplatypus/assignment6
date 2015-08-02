@@ -24,11 +24,16 @@ $new_movie = json_decode(file_get_contents('php://input'));
 //echo $new_movie->name;
 
 if(isset($new_movie)){
-	$name = $new_movie->name;
-	$category = $new_movie->category;
+	$movieName = $new_movie->name;
+	$movieCategory = $new_movie->category;
 	$movieLength = $new_movie->movieLength;
-	$sql = "INSERT INTO cs290assign6 ( name, category, length) VALUES( $name, $category, $movieLength)";
-	mysqli_query($mysqli_handle ,$sql);
+	$sql = "INSERT INTO cs290assign6 ( name, category, length) VALUES( '$movieName', '$movieCategory', '$movieLength')";
+	$result = mysqli_query($mysqli_handle, $sql);
+    if ($result) {
+        echo "success";
+    } else {
+        echo ("Could not insert data : " . mysqli_error($mysqli_handle) . " " . mysqli_errno($mysqli_handle));
+    }
 }
 
 mysqli_close($mysqli_handle);
