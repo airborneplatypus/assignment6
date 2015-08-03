@@ -23,7 +23,6 @@ echo "Category of Movie: <select id=\"category\">
 </select>
 <br>\n";
 echo "Length of Movie: <input type=\"number\" id=\"length\"><br>\n";
-echo "Is it rented? <input type=\"checkbox\" id=\"rented\">Yes<br>\n";
 echo "<button id=\"movieButton\" class=\"btn btn-primary\">Add Movie</button><br>\n";
 echo "<br><br><br>\n";
 

@@ -1,8 +1,7 @@
 var newButton = document.getElementById("movieButton");
-var deleteBtn = document.getElementByID("deleteBtn");
+var deleteBtn = document.getElementById("deleteBtn");
 var newName = document.getElementById("name");
 var newCategory = document.getElementById("category");
-var newRented = document.getElementById("rented");
 var newLength = document.getElementById("length");
 var videoTable = document.getElementById("videos");
 var removeAll = document.getElementById("removeAll");
@@ -78,7 +77,7 @@ searchMenu.onchange = function(){
 
 newButton.onclick = function(){
 	var m = new movie;
-	m.set_movie(0, newName.value, newCategory.value, newRented.checked, newLength.value);
+	m.set_movie(0, newName.value, newCategory.value, 0, newLength.value);
 	var request = new XMLHttpRequest();
 	request.open("POST", "addmovie.php", true);
 	//console.log(JSON.stringify(m));
@@ -104,10 +103,10 @@ newButton.onclick = function(){
 	}
 }
 
-deleteBtn.onclick = function(){
+/*deleteBtn.onclick = function(){
 	var request = new XMLHttpRequest();
 	request.open("POST", "DeleteAll.php", true);
-}
+}*/
 
 function display_movies(searchCategory){
 	while(videoTable.firstChild){
@@ -167,6 +166,9 @@ function delete_Movie(toDelete){
 					//console.log(request);
 				}
 				else{
+					setTimeout(function(){
+						display_movies(currentSearch);
+					},500)
 					//console.log(request);
 				}
 			}
@@ -213,7 +215,7 @@ function toggle_rented(movieID, isRented){
 	}
 }
 
-removeAll.onclick = function(){
+deleteBtn.onclick = function(){
 	var request = new XMLHttpRequest();
 	request.open("POST", "deletemovies.php", true);
 	//console.log(JSON.stringify(m));
