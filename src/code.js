@@ -1,4 +1,5 @@
 var newButton = document.getElementById("movieButton");
+var deleteBtn = document.getElementByID("deleteBtn");
 var newName = document.getElementById("name");
 var newCategory = document.getElementById("category");
 var newRented = document.getElementById("rented");
@@ -46,6 +47,10 @@ newButton.onclick = function(){
 	}
 }
 
+deleteBtn.onclick = function(){
+	var request = new XMLHttpRequest();
+	request.open("POST", "DeleteAll.php", true);
+}
 
 function display_movies(searchCategory){
 	var request = new XMLHttpRequest();

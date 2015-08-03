@@ -20,6 +20,8 @@ echo "<br><br><br>\n";
 echo "<table id=\"videos\">\n";
 echo "</table>\n";
 
+echo "<button id=\"deleteBtn\" type =\"button\">Delete All Videos</button>";
+
 echo "<script src=\"code.js\"></script>\n";
 echo "</body>\n";
 echo "</html>\n";
