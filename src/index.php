@@ -41,7 +41,7 @@ echo "Category For Search: <select id=\"searchOption\">
 echo "<table id=\"videos\">\n";
 echo "</table>\n";
 
-echo "<button id=\"removeAll\" class=\"btn btn-danger\">Remove All Movies</button><br> \n";
+echo "<button id=\"deleteBtn\" type =\"button\">Delete All Videos</button>";
 
 echo "<script src=\"code.js\"></script>\n";
 echo "</body>\n";
