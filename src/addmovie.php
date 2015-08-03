@@ -16,12 +16,7 @@ mysqli_select_db($mysqli_handle, $dbname)
 
 //echo 'Successfully connected to database!';
 
-
-
 $new_movie = json_decode(file_get_contents('php://input'));
-//var_dump($new_movie);
-//var_dump($new_movie->name);
-//echo $new_movie->name;
 
 if(isset($new_movie)){
 	$movieName = $new_movie->name;
