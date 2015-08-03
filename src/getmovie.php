@@ -21,8 +21,13 @@ $search = json_decode(file_get_contents('php://input'));
 
 if(isset($search)){
 	$movieCategory = $search->category;
-	$stmt = $mysqli_handle->prepare("SELECT * FROM cs290assign6 WHERE category = ?");
-	$stmt->bind_param("s", $movieCategory);
+	if($movieCategory = "*"){
+		$stmt = $mysqli_handle->prepare("SELECT * FROM cs290assign6");
+	}
+	else{
+		$stmt = $mysqli_handle->prepare("SELECT * FROM cs290assign6 WHERE category = ?");
+		$stmt->bind_param("s", $movieCategory);
+	}
 	if(!($stmt->execute())){
 		echo ("Could not insert data : " . mysqli_error($mysqli_handle));// . " " . mysqli_errno($mysqli_handle)
 	}
