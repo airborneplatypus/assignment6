@@ -21,7 +21,7 @@ $search = json_decode(file_get_contents('php://input'));
 
 if(isset($search)){
 	$movieCategory = $search->category;
-	if($movieCategory = "*"){
+	if($movieCategory == "*"){
 		$stmt = $mysqli_handle->prepare("SELECT * FROM cs290assign6");
 	}
 	else{
@@ -39,7 +39,7 @@ if(isset($search)){
 			$current_row['id'] = $row[0];
 			$current_row['name'] = $row[1];
 			$current_row['category'] = $row[2];
-			$current_row['length'] = $row[3];
+			$current_row['movieLength'] = $row[3];
 			$current_row['rented'] = $row[4];
 			$response[] = $current_row;
 		}
