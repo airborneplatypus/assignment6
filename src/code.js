@@ -31,12 +31,16 @@ function movie(){
 		var myID = this.id;
 		removeBtn.onclick = function(){
 			delete_Movie(myID);
-			display_movies(currentSearch);
+			setTimeout(function(){
+				display_movies(currentSearch);
+			},500)
 		}
 		var myRented = this.rented;
 		rentBtn.onclick = function(){
 			toggle_rented(myID, myRented);
-			display_movies(currentSearch);
+			setTimeout(function(){
+				display_movies(currentSearch);
+			},500)
 		}
 		removeBtn.innerHTML = "Remove Movie";
 		rentBtn.innerHTML = "Rent Movie";
